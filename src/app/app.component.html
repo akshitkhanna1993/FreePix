@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+
+<app-header  (onTypeChanged)="getRequestType($event)" ></app-header>
+
+<div  class="container"   *ngIf="showPhotoSection==1">
+  <div class="row"  style="margin-top: 25px;">
+
+  <div  class="col-lg-12">
+    
+    <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm"  [(ngModel)]="search" placeholder="What photos are you looking for?">
+         <button type="submit" class="searchButton"  (click)=searchPhotos()>  
+           <i class="fas fa-search"></i>
+        </button>
+      </div>
+   </div>
+
+  </div>
+</div>
+
+
+  <div  class="row"  *ngIf="photoData && photoData.total_results>0"  style="margin-top:10%;padding-left: 75px;">
+    <div  class=""  *ngFor="let data of pexPhotos" style="padding-bottom: 20px;margin-left: 4px;margin-right: 4px;border-radius: 25px;" >
+      <img  [lazyLoad]="data && data.src.original" alt="" height="250px"  width="320px" class="pex-img" />
+     <div>
+      <span class="phname" >Captured By: <a  href="{{data && data.photographer_url}}"  target="_blank">{{data && data.photographer}}</a></span>
+     <a  href="{{data && data.src.original}}"  target="_blank"   style="float: right;"> <i  class="fa fa-download phsave" ></i> </a>
+     </div>
+    </div>
+  </div>
+
+ 
+</div>   
+
+
+<div  class="container"   *ngIf="showVideoSection==1">
+ 
+  <div class="row"  style="margin-top: 25px;">
+
+  <div  class="col-lg-12">
+    
+    <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm"  [(ngModel)]="search" placeholder="What videos are you looking for?">
+         <button type="submit" class="searchButton"  (click)=searchVideos()>  
+           <i class="fas fa-search"></i>
+        </button>
+      </div>
+   </div>
+
+  </div>
+</div>
+
+  <div  class="row"  *ngIf="videoData && videoData.total_results>0"  style="margin-top:10%;padding-left: 75px;">
+    <div  class=""  *ngFor="let data of pexVideos" style="padding-bottom: 20px;margin-left: 4px;margin-right: 4px;border-radius: 25px;" >
+       <img  [lazyLoad]="data && data.image" alt="" height="250px"  width="320px" class="pex-img" /> 
+     <div>
+    
+     <a  href="{{data && data.url}}"  target="_blank" >Watch Here <i  class="fa fa-video phsave" ></i> </a> 
+     </div>
+    </div>
+  </div> 
+
+ 
+</div>
