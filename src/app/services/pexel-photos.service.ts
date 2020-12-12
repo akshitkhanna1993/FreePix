@@ -6,7 +6,7 @@ import{catchError}  from 'rxjs/operators'
 
 const httpOption = {
   headers:new HttpHeaders({
-    'Authorization':'your api key'
+    'Authorization':'563492ad6f917000010000011a15731e9f4b42e486cbf7b2b9788ef1'
   })
 }
 
@@ -18,7 +18,7 @@ const httpOption = {
 
 export class PexelPhotosService {
 
-  
+
 baseUrl:'https://api.pexels.com/v1/search?query=nature&per_page=1'
  baseVideoUrl:  'https://api.pexels.com/videos/search?query=nature&per_page=1'
 

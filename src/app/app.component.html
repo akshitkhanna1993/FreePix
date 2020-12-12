@@ -4,15 +4,15 @@
 
 <app-header  (onTypeChanged)="getRequestType($event)" ></app-header>
 
-<div  class="container"   *ngIf="showPhotoSection==1">
+<div  class="container-fluid"   *ngIf="showPhotoSection==1">
   <div class="row"  style="margin-top: 25px;">
 
   <div  class="col-lg-12">
-    
+
     <div class="wrap">
       <div class="search">
          <input type="text" class="searchTerm"  [(ngModel)]="search" placeholder="What photos are you looking for?">
-         <button type="submit" class="searchButton"  (click)=searchPhotos()>  
+         <button type="submit" class="searchButton"  (click)=searchPhotos()>
            <i class="fas fa-search"></i>
         </button>
       </div>
@@ -32,20 +32,20 @@
     </div>
   </div>
 
- 
-</div>   
+
+</div>
 
 
-<div  class="container"   *ngIf="showVideoSection==1">
- 
+<div  class="container-fluid"   *ngIf="showVideoSection==1">
+
   <div class="row"  style="margin-top: 25px;">
 
   <div  class="col-lg-12">
-    
+
     <div class="wrap">
       <div class="search">
          <input type="text" class="searchTerm"  [(ngModel)]="search" placeholder="What videos are you looking for?">
-         <button type="submit" class="searchButton"  (click)=searchVideos()>  
+         <button type="submit" class="searchButton"  (click)=searchVideos()>
            <i class="fas fa-search"></i>
         </button>
       </div>
@@ -56,13 +56,13 @@
 
   <div  class="row"  *ngIf="videoData && videoData.total_results>0"  style="margin-top:10%;padding-left: 75px;">
     <div  class=""  *ngFor="let data of pexVideos" style="padding-bottom: 20px;margin-left: 4px;margin-right: 4px;border-radius: 25px;" >
-       <img  [lazyLoad]="data && data.image" alt="" height="250px"  width="320px" class="pex-img" /> 
+       <img  [lazyLoad]="data && data.image" alt="" height="250px"  width="320px" class="pex-img" />
      <div>
-    
-     <a  href="{{data && data.url}}"  target="_blank" >Watch Here <i  class="fa fa-video phsave" ></i> </a> 
+
+     <a  href="{{data && data.url}}"  target="_blank" >Watch Here <i  class="fa fa-video phsave" ></i> </a>
      </div>
     </div>
-  </div> 
+  </div>
 
- 
+
 </div>
